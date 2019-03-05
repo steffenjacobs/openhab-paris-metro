@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="paristransportation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    <!-- Sample Thing Type -->
+    <thing-type id="sample">
+        <label>Paris Transportation Binding Thing</label>
+        <description>Sample thing for Paris Transportation Binding</description>
+
+        <channels>
+            <channel id="parisTransportationRefreshChannel" typeId="transportationRefreshChannel" />
+            <channel id="parisTransportationOutputChannel" typeId="transportationOutputChannel" />
+        </channels>
+
+        <config-description>
+            <parameter name="line" type="text" required="true">
+                <label>Desired Line </label>
+                <description>This is desired line.</description>
+            </parameter>
+            <parameter name="direction" type="text" required="true">
+                <label>Desired Direction</label>
+                <description>This is the direction line for the selected line.</description>
+            </parameter>
+            <parameter name="station" type="text" required="true">
+                <label>Desired Station</label>
+                <description>This is the selected station for the selected direction of the selected line.</description>
+            </parameter>
+        </config-description>
+
+    </thing-type>
+
+    <channel-type id="transportationRefreshChannel">
+        <item-type>String</item-type>
+        <label>Paris Transportation Binding Refresh Channel</label>
+        <description>refreshes the Transportation information for the current location</description>
+    </channel-type>
+    
+    <channel-type id="transportationOutputChannel">
+        <item-type>String</item-type>
+        <label>Paris Transportation Binding Output Channel</label>
+        <description>Shows the timetables for the current location</description>
+    </channel-type>
+
+</thing:thing-descriptions>
